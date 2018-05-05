@@ -3,7 +3,7 @@
     <ion-title>Stock</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
+<ion-content>
   <ion-grid>
     <ion-row>
       <ion-col col-10>
@@ -15,103 +15,29 @@
         </ion-searchbar>
       </ion-col>
       <ion-col col-2 align-self-center>
-        <button ion-button color="light" outline>
+        <button ion-button primary outline>
           <ion-icon name="add"></ion-icon>
         </button>
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-card class="product-card">
+  <ion-card class="product-card" *ngFor="let product of products">
     <ion-item>
       <ion-grid>
         <ion-row>
-          <ion-col col-3>
-            <ion-avatar item-start>
-              <img src="img/marty-avatar.png">
-            </ion-avatar>
+          <ion-col col-7>
+            {{product.name}}
           </ion-col>
-          <ion-col col-7 text-center align-self-center>
-            {{product}}<br>
+          <ion-col col-2 style="font-size: large">
+            <strong>{{product.stock}}</strong>
           </ion-col>
-          <ion-col col-2 align-self-center style="font-size: x-large">
-            <strong>{{quantity}}</strong>
+          <ion-col col-3 align-self-center>
+            ({{product.price}})
           </ion-col>
         </ion-row>
         <ion-row>
           <button block ion-button color="primary" outline align-self-center>
-            Agregar Stock
-          </button>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-  </ion-card>
-  <ion-card class="product-card">
-    <ion-item>
-      <ion-grid>
-        <ion-row>
-          <ion-col col-3>
-            <ion-avatar item-start>
-              <img src="img/marty-avatar.png">
-            </ion-avatar>
-          </ion-col>
-          <ion-col col-7 text-center align-self-center>
-            {{product}}<br>
-          </ion-col>
-          <ion-col col-2 align-self-center style="font-size: x-large">
-            <strong>{{quantity}}</strong>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <button block ion-button color="primary" outline align-self-center>
-            Agregar Stock
-          </button>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-  </ion-card>
-  <ion-card class="product-card">
-    <ion-item>
-      <ion-grid>
-        <ion-row>
-          <ion-col col-3>
-            <ion-avatar item-start>
-              <img src="img/marty-avatar.png">
-            </ion-avatar>
-          </ion-col>
-          <ion-col col-7 text-center align-self-center>
-            {{product}}<br>
-          </ion-col>
-          <ion-col col-2 align-self-center style="font-size: x-large">
-            <strong>{{quantity}}</strong>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <button block ion-button color="primary" outline align-self-center>
-            Agregar Stock
-          </button>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-  </ion-card>
-  <ion-card class="product-card">
-    <ion-item>
-      <ion-grid>
-        <ion-row>
-          <ion-col col-3>
-            <ion-avatar item-start>
-              <img src="img/marty-avatar.png">
-            </ion-avatar>
-          </ion-col>
-          <ion-col col-7 text-center align-self-center>
-            {{product}}<br>
-          </ion-col>
-          <ion-col col-2 align-self-center style="font-size: x-large">
-            <strong>{{quantity}}</strong>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <button block ion-button color="primary" outline align-self-center>
-            Agregar Stock
+            Detalle
           </button>
         </ion-row>
       </ion-grid>

@@ -1,11 +1,43 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      About
-    </ion-title>
+    <ion-grid>
+      <ion-row>
+        <ion-col align-self-center="" col-10>
+          <ion-title>
+            Ingresar venta realizada
+          </ion-title>
+        </ion-col>
+        <ion-col col-2>
+          <button ion-button color="danger" (click)="dismissModal()">
+            <ion-icon name="close"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-navbar>
 </ion-header>
-
 <ion-content padding>
-
+  <ion-item>
+    <ion-label fixed="">Ubicación</ion-label>
+    <ion-input type="text" [(ngModel)]="ubication"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label fixed="">Total</ion-label>
+    <ion-input type="text" [(ngModel)]="total"></ion-input>
+  </ion-item>
+  <button ion-button color="secondary" block>
+    Agregar producto
+  </button>
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-10 align-self-center>Nombre</ion-col>
+        <ion-col col-2>
+          <button ion-button secondary >
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>

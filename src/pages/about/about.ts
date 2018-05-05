@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {NavController, ViewController} from 'ionic-angular';
 
 @Component({
   selector: 'page-about',
@@ -7,8 +7,14 @@ import { NavController } from 'ionic-angular';
 })
 export class AboutPage {
 
-  constructor(public navCtrl: NavController) {
+  private ubication:string = 'Anime Comic World';
+  private total:number = 0;
+  private products:any[]=[];
+
+  constructor(public navCtrl: NavController,public viewCtrl: ViewController) {
 
   }
-
+  dismissModal(){
+    this.viewCtrl.dismiss();
+  }
 }
