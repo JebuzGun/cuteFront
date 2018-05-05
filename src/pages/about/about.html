@@ -8,7 +8,7 @@
           </ion-title>
         </ion-col>
         <ion-col col-2>
-          <button ion-button color="danger" (click)="dismissModal()">
+          <button ion-button color="danger" outline (click)="dismissModal()">
             <ion-icon name="close"></ion-icon>
           </button>
         </ion-col>
@@ -25,13 +25,22 @@
     <ion-label fixed="">Total</ion-label>
     <ion-input type="text" [(ngModel)]="total"></ion-input>
   </ion-item>
-  <button ion-button color="secondary" block>
-    Agregar producto
-  </button>
-  <div>
+  <ion-item>
+    <ion-label>Toppings</ion-label>
+    <ion-select [(ngModel)]="productsPresented" (ionChange)="getDataInformation($event)" multiple="true">
+      <ion-option *ngFor="let product of communications.products">{{product.name}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <div *ngFor="let product of products">
     <ion-grid>
       <ion-row>
-        <ion-col col-10 align-self-center>Nombre</ion-col>
+        <ion-col col-7 align-self-center>{{product}}</ion-col>
+        <ion-col col-2 align-self-center>{{product.name}}</ion-col>
+        <ion-col col-1 align-self-center>
+          <ion-item>
+            <ion-input type="number"></ion-input>
+          </ion-item>
+        </ion-col>
         <ion-col col-2>
           <button ion-button secondary >
             <ion-icon name="trash"></ion-icon>
@@ -40,4 +49,5 @@
       </ion-row>
     </ion-grid>
   </div>
+  <button ion-button ouline primary (click)="addSale()" block>Ingresar venta</button>
 </ion-content>

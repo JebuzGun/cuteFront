@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import {CommunicationsProvider} from "../../providers/communications/communications";
+import { CommunicationsProvider } from "../../providers/communications/communications";
 
 @Component({
   selector: 'page-home',
@@ -12,7 +12,8 @@ export class HomePage {
 
   constructor(public navCtrl: NavController,
               private communications: CommunicationsProvider) {
-    communications.getProducts().then((data)=>{
+
+    communications.getProducts().then((data:any)=>{
       this.products = data;
     }).catch((err)=>{console.log(err)});
   }

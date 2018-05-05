@@ -6,14 +6,14 @@ import 'rxjs/add/operator/timeout';
 export class CommunicationsProvider {
 
   private readonly url : string = 'http://35.231.143.39:3000/api/';
-  products:any[];
-  sales:any[];
+  products:any;
+  sales:any;
 
   constructor(public http: HttpClient) {
   }
   getProducts(){
     return new Promise((resolve,reject) => {
-      this.http.get(this.url+'product').timeout(5000).subscribe( res => {
+      this.http.get(this.url+'product').timeout(5000).subscribe( (res:any) => {
         if(res.ok){
           this.products = res.productos;
           resolve(res.productos);
@@ -27,7 +27,7 @@ export class CommunicationsProvider {
   }
   getSales(){
     return new Promise ((resolve,reject)=>{
-      this.http.get(this.url+'sale').timeout(5000).subscribe( res => {
+      this.http.get(this.url+'sale').timeout(5000).subscribe( (res:any) => {
         let ok:boolean = res.ok;
         if(ok){
           this.sales = res.ventas;
@@ -42,7 +42,7 @@ export class CommunicationsProvider {
   }
   makeSale(sale:any){
     return new Promise((resolve,reject)=>{
-      this.http.post(this.url+'sale', sale).timeout(5000).subscribe(res=>{
+      this.http.post(this.url+'sale', sale).timeout(5000).subscribe((res:any)=>{
         if(res.ok){
           resolve(res);
         }else{
